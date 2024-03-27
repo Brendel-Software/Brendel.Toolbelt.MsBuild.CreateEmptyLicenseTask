@@ -3,11 +3,10 @@
 	<PropertyGroup>
 		<TargetFrameworks>net8.0;net472</TargetFrameworks>
 		<Nullable>enable</Nullable>
-		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<!-- Package Information -->
-		<Version>1.0.1</Version>
-		<Authors>brendel-software</Authors>
+		<Version>1.0.2</Version>
+		<Authors>Brendel Software GmbH</Authors>
 		<Company>Brendel Software GmbH</Company>
 		<Description>MsBuild task for creating an empty license.licx file.</Description>
 		<Copyright>Copyright ©2024 Brendel Software GmbH</Copyright>

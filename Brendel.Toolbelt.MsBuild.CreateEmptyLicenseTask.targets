@@ -6,7 +6,7 @@
 
 	<UsingTask TaskName="CreateEmptyLicenseTask"
 	           AssemblyFile="lib\net472\Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask.dll"
-	           Condition="$(TargetFrameworkVersion.StartsWith('v4.8.')) or $(TargetFramework.StartsWith('net48'))" />
+	           Condition="$(TargetFrameworkVersion.StartsWith('v4.8')) or $(TargetFramework.StartsWith('net48'))" />
 
 	<UsingTask TaskName="CreateEmptyLicenseTask"
 	           AssemblyFile="lib\net472\Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask.dll"
