@@ -1,0 +1,18 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask TaskName="Brendel.Toolbelt.Build.Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask"
+	           AssemblyFile="lib\net8.0\Brendel.Toolbelt.Build.Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask.dll"
+	           Condition="$(TargetFramework.StartsWith('net8'))" />
+
+	<UsingTask TaskName="Brendel.Toolbelt.Build.Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask"
+	           AssemblyFile="lib\net472\Brendel.Toolbelt.Build.TouchLicense.dll"
+	           Condition="$(TargetFrameworkVersion.StartsWith('v4.8.')) or $(TargetFramework.StartsWith('net48'))" />
+
+	<UsingTask TaskName="Brendel.Toolbelt.Build.Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask"
+	           AssemblyFile="lib\net472\Brendel.Toolbelt.Build.TouchLicense.dll"
+	           Condition="$(TargetFrameworkVersion) == 'v4.7.2' or $(TargetFramework) == 'net472'" />
+
+	<Target Name="CreateEmptyLicense" BeforeTargets="CompileLicxFiles;BeforeCompile">
+		<CreateEmptyLicenseTask ProjectPath="$(ProjectPath)" />
+	</Target>
+</Project>
