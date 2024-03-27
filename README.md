@@ -1,7 +1,9 @@
-﻿# license.licx Painkiller
-Dieser MsBuild Task erstellt vor dem build eine leere `license.licx`, falls diese benötigt aber nicht vorhanden ist.
+﻿[![Build Status](https://dev.azure.com/brendel-storage/R%C3%BCdigers%20Spielwiese/_apis/build/status%2FBrendel.Toolbelt.MsBuild.CreateEmptyLicenseTask?branchName=master)](https://dev.azure.com/brendel-storage/R%C3%BCdigers%20Spielwiese/_build?definitionId=37)
 
-Siehe: https://community.devexpress.com/blogs/ctodx/archive/2009/03/06/licenses-licx-file-woes.aspx
+# CreateEmptyLicenseTask
+This MsBuild Task creates an empty `license.licx` before the build if it is needed but not present.
 
-## Verwendung
-Durch die Installation des NuGet-Package wird automatisch der MsBuild-Task `CreateEmptyLicense` zum Projekt hinzugefügt, welcher prüft ob das Projekt eine `license.licx` verwendet. Wenn diese Datei benötigt wird aber keine vorhanden ist, erstellt der Build-Task automatisch eine leere Datei unter `Resources\license.licx`.
+Background information see: [DevExpress Blog Entry](https://community.devexpress.com/blogs/ctodx/archive/2009/03/06/licenses-licx-file-woes.aspx)
+
+## Usage
+By installing the NuGet package, an MsBuild Task named `CreateEmptyLicense` is automatically added to the project, which checks if the project uses a `license.licx`. If this file is needed but not present, the build task automatically creates an empty file under `$(ProjectDir)\Resources\license.licx`.
