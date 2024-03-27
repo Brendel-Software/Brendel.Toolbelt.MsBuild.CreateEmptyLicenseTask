@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<!-- Package Information -->
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>brendel-software</Authors>
 		<Company>Brendel Software GmbH</Company>
 		<Description>MsBuild task for creating an empty license.licx file.</Description>
@@ -21,6 +21,7 @@
 
 	<!-- Schiebt das *.nupkg in das lokale NuGet Directory -->
 	<PropertyGroup Condition="'$(LOCAL_NUGET_PACKAGES_HOME)' != ''">
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageOutputPath>$(LOCAL_NUGET_PACKAGES_HOME)</PackageOutputPath>
 	</PropertyGroup>
 
@@ -34,21 +35,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask.targets" 
-		         Pack="true" 
-		         PackagePath="build\$(TargetFramework)\;buildMultiTargeting\;" />
-
+		<Content Include="Brendel.Toolbelt.MsBuild.CreateEmptyLicenseTask.targets" Pack="true" PackagePath="build\$(TargetFramework)\;buildMultiTargeting\;" />
 		<Content Include="lib\**\*" pack="true" PackagePath="build\lib" />
 		<Content Include="README.md" Pack="true" PackagePath="\" />
 		<Content Include="icon.png" pack="true" PackagePath="\" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="build\lib\" />
-	</ItemGroup>
-
 	<!-- Kopiert die erstellten Assemblies in den Projektordner z.B. build/lib/net48/*.dll -->
 	<Target Name="PostBuild" AfterTargets="Build">
-		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)build\lib\$(TargetFramework)" />
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)lib\$(TargetFramework)" />
 	</Target>
 </Project>
